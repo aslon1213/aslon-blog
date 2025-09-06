@@ -13,6 +13,15 @@ const navItems = {
   '/about': {
     name: 'about',
   },
+  "/shell": {
+    name: 'sh',
+  }, 
+  // "/games": {
+  //   name: 'games',
+  // }
+  // "/projects": {
+  //   name: 'projects',
+  // }, 
 }
 
 export function Navbar() {

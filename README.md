@@ -1,42 +1,59 @@
-# Portfolio Blog Starter
+# Student Number Guessing Game
 
-This is a porfolio site template complete with a blog. Includes:
+A Python GUI application that displays student details with a photo and implements a number guessing game.
 
-- MDX and Markdown support
-- Optimized for SEO (sitemap, robots, JSON-LD schema)
-- RSS Feed
-- Dynamic OG images
-- Syntax highlighting
-- Tailwind v4
-- Vercel Speed Insights / Web Analytics
-- Geist font
+## Features
 
-## Demo
+- Student profile display with name, ID, and photo
+- Number guessing game with three difficulty levels:
+  - Easy: 1-10
+  - Medium: 1-100
+  - Hard: 1-1000
+- Feedback system that tells if your guess is higher or lower
+- Attempt counter
+- User-friendly interface
 
-https://portfolio-blog-starter.vercel.app
+## Prerequisites
 
-## How to Use
+Before running this application, you need to have Python installed along with the following libraries:
 
-You can choose from one of the following two methods to use this repository:
+- Tkinter (usually comes with Python installation)
+- PIL (Python Imaging Library) / Pillow
 
-### One-Click Deploy
+## Installation
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
+1. Clone or download this repository
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/blog&project-name=blog&repository-name=blog)
+2. Install the required dependencies:
+   ```
+   pip install Pillow
+   ```
 
-### Clone and Deploy
+3. (Optional) To use a custom student photo, place an image file named `student_photo.jpg` in a folder named `resources` in the project directory.
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [pnpm](https://pnpm.io/installation) to bootstrap the example:
+## Running the Application
 
-```bash
-pnpm create next-app --example https://github.com/vercel/examples/tree/main/solutions/blog blog
+Run the application by executing:
+
+```
+python app.py
 ```
 
-Then, run Next.js in development mode:
+## How to Play
 
-```bash
-pnpm dev
-```
+1. Select a difficulty level by clicking one of the three buttons (1-10, 1-100, or 1-1000)
+2. Click the "Start Game" button
+3. Enter your guess in the input field
+4. Click "Submit Guess" or press Enter
+5. Based on your guess, the application will give you feedback (higher or lower)
+6. Continue guessing until you find the number
+7. The game will display the number of attempts you took to find the correct number
 
-Deploy it to the cloud with [Vercel](https://vercel.com/templates) ([Documentation](https://nextjs.org/docs/app/building-your-application/deploying)).
+## Customization
+
+You can customize the student details by editing the following variables in the `StudentGameApp` class:
+
+- `self.student_name`
+- `self.student_id`
+
+To use a custom student photo, place an image file named `student_photo.jpg` in a folder named `resources` in the project directory.

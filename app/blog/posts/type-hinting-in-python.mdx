@@ -1,0 +1,86 @@
+---
+title: "Type hinting in python. Practical Examples."
+publishedAt: "2025-04-08"
+summary: "Explored pros and cons of different agent frameworks."
+---
+
+# Type Hinting and Static Analysis Tools in Python: Why They Matter
+
+Python is loved for its flexibility and ease of use, but this dynamic nature can sometimes lead to runtime surprises. Unlike statically typed languages (like Java or C#), Python does not enforce type checking at compile time. This is where type hinting and static analysis tools step in to bring clarity, maintainability, and confidence to your codebase.
+
+What Is Type Hinting in Python?
+
+Type hinting, introduced in PEP 484, allows developers to annotate variables, function parameters, and return values with expected types. These annotations don’t affect the actual execution—they’re purely for developers and tools to understand the intended types.
+
+Example:
+
+```python
+def greet(name: str) -> str:
+return f"Hello, {name}"
+```
+
+Here:
+• name: str indicates the parameter should be a string.
+• -> str means the function returns a string.
+
+Why Use Type Hints?
+• Improved Readability: Future maintainers immediately know what types to expect.
+• Fewer Bugs: Detect mismatches before running the code.
+• Better Tooling: IDEs offer autocomplete and type checking.
+• Documentation: Acts as self-documenting code.
+
+Static Analysis Tools: Your Safety Net
+
+Static analysis tools analyze your code without executing it. When combined with type hints, they can catch errors early, enforce style, and improve code quality.
+
+Popular Tools for Type Checking
+• Mypy: The most widely used static type checker for Python.
+• Pyright: Fast, used internally by VS Code for Python IntelliSense.
+• Pyre: A performance-oriented type checker by Meta.
+
+Example with Mypy:
+
+```bash
+mypy app.py
+```
+
+If you wrote:
+
+```python
+def square(n: int) -> int:
+return n \* n
+
+square("4") # Passing a string
+```
+
+Mypy would flag:
+
+`error: Argument 1 to "square" has incompatible type "str"; expected "int"`
+
+Why Do They Matter?
+
+1. Early Bug Detection
+
+Type mismatches that could lead to runtime crashes are caught during development.
+
+2. Easier Refactoring
+
+When you refactor, type hints and static checks help ensure changes don’t break functionality.
+
+3. Large Codebases & Teams
+
+When multiple developers work on the same project, type hints serve as a shared contract.
+
+4. Performance of Development
+
+Though Python won’t run faster, you will develop faster with fewer bugs and clearer code.
+
+Practical Tips
+• Start small: Add type hints to new code or critical functions.
+• Use Optional and Union for multiple possible types.
+• Combine with linters like Flake8 or Pylint for full static analysis coverage.
+• Consider enabling --strict mode in Mypy for stronger guarantees.
+
+Bottom Line
+
+Type hinting and static analysis tools bring the best of both worlds: Python’s flexibility and the reliability of static typing. They won’t slow you down—they’ll help you scale your codebase confidently.

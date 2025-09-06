@@ -1,5 +1,189 @@
 import Image from 'next/image';
 
+const socialLinks = [
+  {
+    href: 'mailto:hamidovaslon1@gmail.com',
+    icon: '/icons/mail.svg',
+    alt: 'Gmail',
+  },
+  {
+    href: 'https://t.me/aslon13',
+    icon: '/icons/brand-telegram.svg',
+    alt: 'Telegram',
+  },
+  {
+    href: 'https://twitter.com/aslon1213',
+    icon: '/icons/brand-x.svg',
+    alt: 'Twitter',
+  },
+  {
+    href: 'https://www.linkedin.com/in/aslonkhuja-khamidov-4a8131202/',
+    icon: '/icons/brand-linkedin.svg',
+    alt: 'LinkedIn',
+  },
+];
+
+const languages = [
+  {
+    icon: '/icons/Python-Dark.svg',
+    alt: 'Python',
+  },
+  {
+    icon: '/icons/Bash-Dark.svg',
+    alt: 'Bash',
+  },
+  {
+    icon: '/icons/GoLang.svg',
+    alt: 'Go',
+  },
+  {
+    icon: '/icons/CPP.svg',
+    alt: 'C++',
+  },
+];
+
+const frameworks = [
+  {
+    icon: '/icons/FastAPI.svg',
+    alt: 'FastAPI',
+  },
+  {
+    icon: '/icons/Django.svg',
+    alt: 'Django',
+  },
+  {
+    icon: '/icons/pandas.svg',
+    alt: 'Pandas',
+  },
+  {
+    icon: '/icons/numpy.svg',
+    alt: 'Numpy',
+  },
+];
+
+const databases = [
+  {
+    icon: '/icons/MySQL-Dark.svg',
+    alt: 'MySQL',
+  },
+  {
+    icon: '/icons/MongoDB.svg',
+    alt: 'MongoDB',
+  },
+  {
+    icon: '/icons/Redis-Dark.svg',
+    alt: 'Redis',
+  },
+  {
+    icon: '/icons/PostgreSQL-Dark.svg',
+    alt: 'Postgres',
+  },
+];
+
+const tools = [
+  {
+    icon: '/icons/warp.png',
+    alt: 'Warp',
+  },
+  {
+    icon: '/icons/Postman.svg',
+    alt: 'Postman',
+  },
+  {
+    icon: '/icons/Docker.svg',
+    alt: 'Docker',
+  },
+  {
+    icon: '/icons/Git.svg',
+    alt: 'Git',
+  },
+  {
+    icon: '/icons/Github-Dark.svg',
+    alt: 'GitHub',
+  },
+  {
+    icon: '/icons/Nginx.svg',
+    alt: 'Nginx',
+  },
+  {
+    icon: '/icons/hf-logo.svg',
+    alt: 'HuggingFace',
+  },
+  {
+    icon: '/icons/TensorFlow-Dark.svg',
+    alt: 'TensorFlow',
+  },
+  {
+    icon: '/icons/PyTorch-Dark.svg',
+    alt: 'PyTorch',
+  },
+  {
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg',
+    alt: 'Jupyter',
+  },
+  {
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecolab/googlecolab-original.svg',
+    alt: 'Google Colab',
+  },
+  {
+    icon: '/icons/VSCode-Dark.svg',
+    alt: 'VS Code',
+  },
+  {
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/keras/keras-original.svg',
+    alt: 'Keras',
+  },
+  // for logging 
+  {
+    icon: '/icons/structlog.svg',
+    alt: 'Structlog',
+  },
+  // for logging
+  {
+    icon: '/icons/zerolog.svg',
+    alt: 'Zerolog',
+  },
+  // for web frameworks
+  {
+    icon: '/icons/fiber.svg',
+    alt: 'Fiber v2',
+  },
+  {
+    icon: '/icons/gin.svg',
+    alt: 'Gin',
+  },
+  // for analytics
+  {
+    icon: '/icons/google-adk.svg',
+    alt: 'Google ADK',
+  },
+  // for LLM orchestration
+  {
+    icon: '/icons/langchain.svg',
+    alt: 'LangChain',
+  },
+  // for LLM observability
+  {
+    icon: '/icons/langfuse.svg',
+    alt: 'Langfuse',
+  },
+  // for logging/observability
+  {
+    icon: '/icons/logfire.svg',
+    alt: 'Logfire',
+  },
+  // for data validation
+  {
+    icon: '/icons/pydantic.svg',
+    alt: 'Pydantic',
+  },
+  // for web frameworks
+  {
+    icon: '/icons/fastapi.svg',
+    alt: 'FastAPI',
+  },
+];
+
 const AboutMe = () => {
   return (
     <div className="max-w-4xl mx-auto py-8 px-4">
@@ -28,23 +212,28 @@ const AboutMe = () => {
 
         {/* Social Links */}
         <div className="flex flex-wrap gap-2">
-          <a href="mailto:hamidovaslon1@gmail.com" target="_blank" rel="noopener noreferrer">
-            <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" />
-          </a>
-          <a href="https://t.me/aslon13" target="_blank" rel="noopener noreferrer">
-            <img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram" />
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <img src="https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white" alt="Twitter" />
-          </a>
-          <a href="https://www.linkedin.com/in/aslonkhuja-khamidov-4a8131202/" target="_blank" rel="noopener noreferrer">
-            <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-          </a>
+          {socialLinks.map((link, idx) => (
+            <a
+              key={link.alt}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center"
+            >
+              <Image
+                src={link.icon}
+                alt={link.alt}
+                width={40}
+                height={40}
+                className="rounded"
+              />
+            </a>
+          ))}
         </div>
 
         {/* GitHub Stats */}
         <section>
-          <h2 className="text-2xl font-bold mb-4">Skills:</h2>
+          <h2 className="text-2xl font-bold mb-4">GitHub Stats</h2>
           <img 
             src="https://github-readme-stats.vercel.app/api?username=aslon1213&show_icons=true&theme=radical" 
             alt="GitHub Stats"
@@ -52,14 +241,111 @@ const AboutMe = () => {
           />
         </section>
 
+        {/* Experience */}
+        <section>
+          <h2 className="text-2xl font-bold mb-4">Experience</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4 bg-white/50 dark:bg-black/20">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-lg font-semibold">Carwon</h3>
+                <span className="text-sm text-gray-500">May 2022 — Sep 2022</span>
+              </div>
+              <ul className="list-disc list-inside space-y-2 text-sm leading-relaxed">
+                <li>Strengthened collaboration through cross-functional projects and brainstorming sessions.</li>
+                <li>Supported a new wireless product launch: QA processes, customer feedback collection, and resolving technical issues.</li>
+                <li>Worked with REST services and networking protocols (HTTP, JSON, etc.).</li>
+              </ul>
+            </div>
+            <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4 bg-white/50 dark:bg-black/20">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-lg font-semibold">Goods For Home</h3>
+                <span className="text-sm text-gray-500">May 2023 — Present</span>
+              </div>
+              <ul className="list-disc list-inside space-y-2 text-sm leading-relaxed">
+                <li>Delivered automation projects across finance, management, workflows, inventory, and HR.</li>
+                <li>Deployed applications on DigitalOcean cloud servers.</li>
+                <li>Designed and built REST APIs for multiple services.</li>
+                <li>Contributed to CRM and ERP system development.</li>
+              </ul>
+            </div>
+            <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4 bg-white/50 dark:bg-black/20">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-lg font-semibold">Consultant AI — Guide Me</h3>
+                <span className="text-sm text-gray-500">2023 — 2025</span>
+              </div>
+              <ul className="list-disc list-inside space-y-2 text-sm leading-relaxed">
+                <li>Built automated CI/CD pipelines.</li>
+                <li>Worked with cutting-edge industry technologies.</li>
+                <li>Developed microservices and used gRPC for inter-service communication.</li>
+                <li>Leveraged TCP/IP and WebSocket for high-speed client–server messaging.</li>
+              </ul>
+            </div>
+            <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4 bg-white/50 dark:bg-black/20">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-lg font-semibold">Smart Bank</h3>
+                <span className="text-sm text-gray-500">2024 — Present</span>
+              </div>
+              <ul className="list-disc list-inside space-y-2 text-sm leading-relaxed">
+                <li>Developed customer service chatbots and a ChatBot Assistant to improve support and automate responses.</li>
+                <li>Built speech-to-text (STT) models using Transformers and the Conformer architecture.</li>
+                <li>Developing text-to-speech (TTS) systems with XTTS and VALL-E for natural-sounding speech.</li>
+                <li>Shipped LLM-based chatbots with RAG, an MCP server, and advanced tool use.</li>
+                <li>Created server-driven UI (SDUI) for dynamic, scalable interfaces.</li>
+                <li>Implemented image search using image embeddings and vector databases (ImageBind, CLIP, Qdrant, Milvus).</li>
+                <li>Built image enhancement pipelines to improve quality and user experience.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Education */}
+        <section>
+          <h2 className="text-2xl font-bold mb-4">Education</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4 bg-white/50 dark:bg-black/20">
+              <div className="flex items-center justify-between mb-1">
+                <h3 className="text-lg font-semibold">Inha University in Tashkent</h3>
+                <span className="text-sm text-gray-500">BSc in Computer Science</span>
+              </div>
+              <ul className="list-disc list-inside space-y-2 text-sm leading-relaxed">
+                <li>Applied advanced programming in OOP (Java, C++), systems, and Unix programming through hands-on projects.</li>
+                <li>Built AI-driven solutions in courses on Artificial Intelligence, Big Data Analytics, and Multimedia Computing.</li>
+                <li>Developed mobile apps, IoT prototypes, and blockchain-based platforms in electives.</li>
+                <li>Strengthened foundations in data structures, algorithms, linear algebra, discrete math, probability, and statistics.</li>
+                <li>Contributed to systems projects in OS, networks, and software engineering, including a Capstone Design project.</li>
+              </ul>
+            </div>
+            <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4 bg-white/50 dark:bg-black/20">
+              <div className="flex items-center justify-between mb-1">
+                <h3 className="text-lg font-semibold">EPAM Systems</h3>
+                <span className="text-sm text-gray-500">Golang Training Program (2022 — 2023)</span>
+              </div>
+              <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">Core Go competencies developed:</p>
+              <ul className="list-disc list-inside space-y-2 text-sm leading-relaxed">
+                <li>Concurrency with goroutines and channels</li>
+                <li>Interfaces and polymorphism</li>
+                <li>Testing frameworks</li>
+                <li>Databases</li>
+                <li>Web programming</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* Languages */}
         <section>
           <h2 className="text-2xl font-bold mb-4">Languages</h2>
           <div className="flex flex-wrap gap-2">
-            <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python" />
-            <img src="https://img.shields.io/badge/bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Bash" />
-            <img src="https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white" alt="Go" />
-            <img src="https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++" />
+            {languages.map((lang) => (
+              <Image
+                key={lang.alt}
+                src={lang.icon}
+                alt={lang.alt}
+                width={60}
+                height={60}
+                className="rounded"
+              />
+            ))}
           </div>
         </section>
 
@@ -67,12 +353,16 @@ const AboutMe = () => {
         <section>
           <h2 className="text-2xl font-bold mb-4">Frameworks</h2>
           <div className="flex flex-wrap gap-2">
-            <img src="https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi" alt="FastAPI" />
-            <img src="https://img.shields.io/badge/DJANGO-REST-ff1709?style=for-the-badge&logo=django&logoColor=white&color=ff1709&labelColor=gray" alt="DjangoREST" />
-            <img src="https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white" alt="Django" />
-            <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white" alt="JWT" />
-            <img src="https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas" />
-            <img src="https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white" alt="Numpy" />
+            {frameworks.map((fw, idx) => (
+              <Image
+                key={fw.alt + idx}
+                src={fw.icon}
+                alt={fw.alt}
+                width={60}
+                height={60}
+                className="rounded"
+              />
+            ))}
           </div>
         </section>
 
@@ -80,10 +370,16 @@ const AboutMe = () => {
         <section>
           <h2 className="text-2xl font-bold mb-4">Databases</h2>
           <div className="flex flex-wrap gap-2">
-            <img src="https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
-            <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
-            <img src="https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white" alt="Redis" />
-            <img src="https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white" alt="Postgres" />
+            {databases.map((db) => (
+              <Image
+                key={db.alt}
+                src={db.icon}
+                alt={db.alt}
+                width={60}
+                height={60}
+                className="rounded"
+              />
+            ))}
           </div>
         </section>
 
@@ -91,23 +387,18 @@ const AboutMe = () => {
         <section>
           <h2 className="text-2xl font-bold mb-4">Tools</h2>
           <div className="flex flex-wrap gap-2">
-            <img src="https://img.shields.io/badge/warp-01A4FF?style=for-the-badge&logo=warp&logoColor=white" alt="Warp" />
-            <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="Postman" />
-            <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
-            <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
-            <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-            <img src="https://img.shields.io/badge/nginx-%230096D8.svg?style=for-the-badge&logo=nginx&logoColor=white" alt="Nginx" />
-            <img src="https://img.shields.io/badge/-HuggingFace-FDEE21?style=for-the-badge&logo=HuggingFace&logoColor=black" alt="HuggingFace" />
-            <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow" />
-            <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch" />
-            <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=Jupyter&logoColor=white" alt="Jupyter" />
-            <img src="https://img.shields.io/badge/Google_Colab-F9AB00?style=for-the-badge&logo=google-colab&logoColor=white" alt="Google Colab" />
-            <img src="https://img.shields.io/badge/Visual_Studio_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code" />
-            <img src="https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=Keras&logoColor=white" alt="Keras" />
+            {tools.map((tool) => (
+              <Image
+                key={tool.alt}
+                src={tool.icon}
+                alt={tool.alt}
+                width={60}
+                height={60}
+                className="rounded"
+              />
+            ))}
           </div>
         </section>
-
-      
       </section>
     </div>
   );
